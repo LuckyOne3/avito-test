@@ -46,7 +46,6 @@ export const Previewer: React.FC<Props> = (props) => {
     const ref = React.createRef();
 
         // @ts-ignore
-
     let block = <><FancyButton ref={ref}><div  id='previewer' className="previewer" style={styleDiv} >
                     <img id="target" alt='' src={props.data.image}/>
 
@@ -64,6 +63,20 @@ export const Previewer: React.FC<Props> = (props) => {
 
 
                 </>;
+
+    let link = document.createElement('a');
+    link.download = 'hello.html';
+
+    let blob = new Blob(['<h1>Hello, world!</h1>'], {type: 'text/plain'});
+
+    let reader = new FileReader();
+    reader.readAsDataURL(blob); // конвертирует Blob в base64 и вызывает onload
+
+    reader.onload = function() {
+        // @ts-ignore
+        link.href = reader.result; // url с данными
+
+    };
     // @ts-ignore
     let downBlock = <div className="export"><div><button  onClick={() => exportComponentAsPNG(ref)} type="button" className="btn btn-primary" >сохранить в png</button>
             <CopyToClipboard text={html}>
@@ -72,6 +85,7 @@ export const Previewer: React.FC<Props> = (props) => {
             <CopyToClipboard text={JSON.stringify(props.data)}>
                 <button type="button" className="btn btn-info">скопировать конфигурацию (json)</button>
             </CopyToClipboard>
+
         </div>
     </div>;
 

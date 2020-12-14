@@ -14,12 +14,20 @@ Open [http://localhost:3999](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `yarn build`
+### Приложение состоит из:
+* Превью баннера *сделано*
+* Формы ввода параметров баннера *сделано*
+* 3 кнопок экспорта:
+    * сохранить картинку в `png` *сделано*
+    * скопировать баннер в буфер обмена, как `html` или `jsx` строку (на ваше усмотрение) *сделано*
+    * скопировать конфигурацию баннера в буфер обмена, как `json` строку *сделано* 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Баннер может:
+* иметь иллюстрацию (по ссылке или `dataURI`)
+* отображать не более 3 строк текста, но текст может быть какой угодно длины *сделано*
+* иметь заливку цветом ([`color`](https://developer.mozilla.org/ru/docs/Web/CSS/color_value) или [`gradient`](https://developer.mozilla.org/ru/docs/Web/CSS/gradient)) *сделано*
+* при клике на баннер можно перейти по заданной ссылке (в случае с выгружаемой разметкой)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Критерии приёмки
+Задание должно быть выполнено в срок до 2-ух недель. Исходный код можно скачать (`git clone`) и запустить локально (`npm install && npm start`).
+После запуска приложение должно быть доступно в браузере по адресу `localhost:3999`.

@@ -12,6 +12,8 @@ type Props = {
 }
 
 
+
+
 export const FormInputs: React.FC<Props> = (props) => {
     const [data, setData] = useState({
         "image": "",
@@ -21,7 +23,7 @@ export const FormInputs: React.FC<Props> = (props) => {
 
 
     useEffect(() => {
-        // action on update of movies
+        // action on update
         props.updateData(data)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [data]);
@@ -41,10 +43,12 @@ export const FormInputs: React.FC<Props> = (props) => {
             };
             reader.readAsDataURL(event.currentTarget.files[0]);
 
+
         }else{
             tmp[type] = event.currentTarget.value;
             setData(tmp);
         }
+
 
     }
 
