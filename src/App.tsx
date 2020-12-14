@@ -3,8 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {FormInputs} from "./components/formInputs/formInputs";
 import {Previewer} from "./components/previewer/previewer";
-// @ts-ignore
-import copy from 'copy-html-to-clipboard';
+
 
 
 type TData = {

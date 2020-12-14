@@ -46,7 +46,8 @@ export const Previewer: React.FC<Props> = (props) => {
     const ref = React.createRef();
 
         // @ts-ignore
-    let block = <><FancyButton ref={ref}><div  id='previewer' className="previewer" style={styleDiv} onClick={() => exportComponentAsPNG(ref)}>
+
+    let block = <><FancyButton ref={ref}><div  id='previewer' className="previewer" style={styleDiv} >
                     <img id="target" alt='' src={props.data.image}/>
 
                     <div className="previewer-text">
@@ -60,19 +61,25 @@ export const Previewer: React.FC<Props> = (props) => {
                 </div></FancyButton>
 
 
-                    <div className="export">
-                        <div>
-                            <button type="button" className="btn btn-primary" >сохранить в png</button>
-                            <CopyToClipboard text={html}>
-                                <button type="button" className="btn btn-success">скопировать баннер (html)</button>
-                            </CopyToClipboard>
-                            <CopyToClipboard text={JSON.stringify(props.data)}>
-                                <button type="button" className="btn btn-info">скопировать конфигурацию (json)</button>
-                            </CopyToClipboard>
-                        </div>
-                    </div>
 
-                </>
-        return block;
+
+                </>;
+    // @ts-ignore
+    let downBlock = <div className="export"><div><button  onClick={() => exportComponentAsPNG(ref)} type="button" className="btn btn-primary" >сохранить в png</button>
+            <CopyToClipboard text={html}>
+                <button type="button" className="btn btn-success">скопировать баннер (html)</button>
+            </CopyToClipboard>
+            <CopyToClipboard text={JSON.stringify(props.data)}>
+                <button type="button" className="btn btn-info">скопировать конфигурацию (json)</button>
+            </CopyToClipboard>
+        </div>
+    </div>;
+
+        return (
+            <>
+                {block}
+                {downBlock}
+            </>
+        );
 
 }
