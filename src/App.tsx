@@ -1,24 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {FormInputs} from "./components/formInputs/formInputs";
+import {Previewer} from "./components/previewer/previewer";
+
+type TData = {
+    "image": string,
+    "color": string,
+    "text" : string
+}
 
 function App() {
-  return (
+
+    const [data, setData] = useState({
+        "image": "",
+        "color": "",
+        "text" : ""
+    });
+    const updateData = (dataObj:TData) => {
+        setData(dataObj)
+    }
+
+    return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <FormInputs updateData={updateData} />
+      <Previewer data={data}/>
     </div>
   );
 }
