@@ -3,12 +3,17 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {FormInputs} from "./components/formInputs/formInputs";
 import {Previewer} from "./components/previewer/previewer";
+// @ts-ignore
+import copy from 'copy-html-to-clipboard';
+
 
 type TData = {
     "image": string,
     "color": string,
     "text" : string
 }
+
+
 
 function App() {
 
@@ -21,12 +26,21 @@ function App() {
         setData(dataObj)
     }
 
-    return (
-    <div className="App">
+
+
+
+
+    // @ts-ignore
+    return <div className="App">
+        <div className="halfPage  form">
       <FormInputs updateData={updateData} />
-      <Previewer data={data}/>
-    </div>
-  );
+        </div>
+        <div className="halfPage" >
+            <div className="container-inner" >
+      <Previewer data={data} />
+            </div>
+        </div>
+    </div>;
 }
 
 export default App;

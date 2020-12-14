@@ -1,27 +1,78 @@
-
 import React from 'react';
+import CSS from 'csstype';
+// @ts-ignore
+import LinesEllipsis from 'react-lines-ellipsis';
+// @ts-ignore
+import {CopyToClipboard} from 'react-copy-to-clipboard';
+
+import {exportComponentAsPNG } from 'react-component-export-image';
 
 type TData = {
     "image": string,
     "color": string,
-    "text" : string
+    "text": string
 }
 
 type Props = {
     data: TData
 }
 
-export const Previewer: React.FC<Props> = (props) => {
-    return (
-        <div className="halfPage">
-            <div className="container-inner">
-                {props.data.color}
-                <br/>
-                {props.data.text}
-                <br/>
+// @ts-ignore
+const FancyButton = React.forwardRef((props, ref) => (<div ref={ref} className="previewer-wrapper">
+        {props.children}
+    </div>
+));
 
-                <img id="target" alt="background" src={props.data.image}/>
-            </div>
-        </div>
-    );
+
+export const Previewer: React.FC<Props> = (props) => {
+
+    const styleDiv: CSS.Properties = {
+        background: props.data.color
+    };
+    // @ts-ignore
+    const htmlForBanner = () => {
+        // @ts-ignore
+        let find = document.getElementById('root').innerHTML
+
+        let pattern = '<div id="previewer" (.*?)>(.*?)</div>';
+        let matches = find.match(pattern);
+        // @ts-ignore
+        let result= matches;
+
+        return result
+    }
+
+     let html = htmlForBanner();
+    const ref = React.createRef();
+
+        // @ts-ignore
+    let block = <><FancyButton ref={ref}><div  id='previewer' className="previewer" style={styleDiv} onClick={() => exportComponentAsPNG(ref)}>
+                    <img id="target" alt='' src={props.data.image}/>
+
+                    <div className="previewer-text">
+                        <LinesEllipsis
+                            text={props.data.text}
+                            maxLine='3'
+                            ellipsis=''
+                        />
+                    </div>
+
+                </div></FancyButton>
+
+
+                    <div className="export">
+                        <div>
+                            <button type="button" className="btn btn-primary" >сохранить в png</button>
+                            <CopyToClipboard text={html}>
+                                <button type="button" className="btn btn-success">скопировать баннер (html)</button>
+                            </CopyToClipboard>
+                            <CopyToClipboard text={JSON.stringify(props.data)}>
+                                <button type="button" className="btn btn-info">скопировать конфигурацию (json)</button>
+                            </CopyToClipboard>
+                        </div>
+                    </div>
+
+                </>
+        return block;
+
 }

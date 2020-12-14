@@ -58,5 +58,52 @@ body {
 
 
 #target{
-  width: 200px;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 10px;
+  right: 0px;
+}
+.previewer-text{
+  position: absolute;
+  left: 0px;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  bottom: 16px;
+  font-size: 18px;
+  line-height: 20px;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.previewer{
+
+  position: relative;
+  width: 141px;
+  padding-left:10px ;
+  padding-right:10px ;
+  height: 188px;
+  cursor: pointer;
+  margin: auto;
+  color:white;
+  text-align: left;
+  background-color: grey;
+  border-radius: 8px;
+}
+.previewer-wrapper{
+  width: 141px;
+  margin: auto;
+  height: 188px;
+}
+.previewer::after {
+  position: absolute;
+  top: -3px;
+  right: -5px;
+  content: '';
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #f71b47;
+  border: 3px solid #fff;
 }

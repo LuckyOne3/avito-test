@@ -19,6 +19,7 @@ export const FormInputs: React.FC<Props> = (props) => {
         "text" : ""
     });
 
+
     useEffect(() => {
         // action on update of movies
         props.updateData(data)
@@ -48,27 +49,19 @@ export const FormInputs: React.FC<Props> = (props) => {
     }
 
     return (
-        <div className="halfPage form ">
             <div className="form-group container-inner">
                 <div className="custom-file form-control">
                     <input type="file" className="custom-file-input" id="customFile" onChange={(event) => handleChange(event,"image")}/>
                         <label className="custom-file-label" htmlFor="customFile">Выберите задний план для баннера</label>
                 </div>
 
-                <input className="form-control " type="text" placeholder="Цвет"    onChange={(event) => handleChange(event,"color")}/>
+                <input className="form-control "  type="text" placeholder="Цвет в формате hex или linear-gradient()" onChange={(event) => handleChange(event,"color")}/>
                 <textarea className="form-control" id="exampleFormControlTextarea1" onChange={(event) => handleChange(event,"text")} placeholder="Текст внутри баннера"/>
 
 
 
 
-                <div className="export">
-                    <div>
-                    <button type="button" className="btn btn-primary">сохранить в png</button>
-                    <button type="button" className="btn btn-success">скопировать баннер (jsx)</button>
-                    <button type="button" className="btn btn-info">скопировать конфигурацию (json)</button>
-                    </div>
-                </div>
+
             </div>
-        </div>
     );
 }
