@@ -1,6 +1,10 @@
 import React from 'react';
 // @ts-ignore
 import {CopyToClipboard} from 'react-copy-to-clipboard';
+// @ts-ignore
+import Hyphenated from 'react-hyphen';
+// @ts-ignore
+import ru from 'hyphenated-ru';
 import {exportComponentAsPNG} from 'react-component-export-image';
 import RenderDom from 'react-dom/server';
 import styled from 'styled-components';
@@ -24,8 +28,6 @@ type BackProps = {
 const WrapperForBanner = styled.div<BackProps>`
   position: relative;
   width: 141px;
-  padding-left:10px ;
-  padding-right:10px ;
   height: 188px;
   cursor: pointer;
   margin: auto;
@@ -52,16 +54,17 @@ const WrapperForBanner = styled.div<BackProps>`
 const TextInBanner = styled.div`
 
 position: absolute;
-width: 141px;
+width: 121px;
   left: 0px;
-  padding-left: 10px;
-  padding-right: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
   bottom: 16px;
   font-size: 18px;
   line-height: 20px;
   max-height: 60px;
   overflow: hidden;
   overflow-wrap: break-word;
+  font-family: Arial, sans-serif;
 
 `;
 
@@ -86,14 +89,14 @@ export const Previewer: React.FC<Props> = (props) => {
 
     const DownloadHtml = () => {
         const sheet = new ServerStyleSheet();
-        // @ts-ignore
         const html = RenderDom.renderToString(sheet.collectStyles(
             <a href={props.data.href}>
             <WrapperForBanner id='previewer' background={props.data.color}>
                 <ImgInBanner src={props.data.image || undefined}/>
-                {/* @ts-ignore */}
-                <TextInBanner className="position-absolute">
+                <TextInBanner>
+                    <Hyphenated language={ru}>
                     {props.data.text }
+                    </Hyphenated>
                 </TextInBanner>
             </WrapperForBanner>
             </a>
@@ -122,7 +125,9 @@ export const Previewer: React.FC<Props> = (props) => {
                 <WrapperForBanner id='previewer' background={props.data.color}>
                     <ImgInBanner alt='' src={props.data.image}/>
                     <TextInBanner>
-                        {props.data.text}
+                        <Hyphenated language={ru}>
+                            {props.data.text }
+                        </Hyphenated>
                     </TextInBanner>
                 </WrapperForBanner>
                 </a>
