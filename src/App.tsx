@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {FormInputs} from "./components/formInputs/formInputs";
 import {Previewer} from "./components/previewer/previewer";
