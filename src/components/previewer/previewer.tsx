@@ -94,9 +94,9 @@ export const Previewer: React.FC<Props> = (props) => {
             <WrapperForBanner id='previewer' background={props.data.color}>
                 <ImgInBanner src={props.data.image || undefined}/>
                 <TextInBanner>
-                    <Hyphenated language={ru}>
+
                     {props.data.text }
-                    </Hyphenated>
+
                 </TextInBanner>
             </WrapperForBanner>
             </a>
@@ -125,9 +125,9 @@ export const Previewer: React.FC<Props> = (props) => {
                 <WrapperForBanner id='previewer' background={props.data.color}>
                     <ImgInBanner alt='' src={props.data.image}/>
                     <TextInBanner>
-                        <Hyphenated language={ru}>
+
                             {props.data.text }
-                        </Hyphenated>
+
                     </TextInBanner>
                 </WrapperForBanner>
                 </a>
