@@ -28,6 +28,3 @@ You will also see any lint errors in the console.
 * иметь заливку цветом ([`color`](https://developer.mozilla.org/ru/docs/Web/CSS/color_value) или [`gradient`](https://developer.mozilla.org/ru/docs/Web/CSS/gradient)) `сделано`
 * при клике на баннер можно перейти по заданной ссылке (в случае с выгружаемой разметкой) `сделано`
 
-### Критерии приёмки
-Задание должно быть выполнено в срок до 2-ух недель. Исходный код можно скачать (`git clone`) и запустить локально (`npm install && npm start`).
-После запуска приложение должно быть доступно в браузере по адресу `localhost:3999`.
