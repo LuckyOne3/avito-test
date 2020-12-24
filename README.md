@@ -1,6 +1,4 @@
-# Демо
 
-[https://luckyone3.github.io/avito-test/index.html]
 
 # Getting Started with Create React App
 
