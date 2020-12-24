@@ -69,10 +69,10 @@ width: 121px;
 `;
 
 const ImgInBanner = styled.img`
-
-height: auto;
+    height: auto;
     top: 10px;
-    right: 10px;
+    width: 100%;
+    object-fit: cover;
     position: absolute;
     max-height: 90px;
 `;
